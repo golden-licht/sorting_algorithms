@@ -12,6 +12,9 @@ void bubble_sort(int *array, size_t size)
 	size_t indexing_length = size - 1;
 	bool swapped = true;
 
+	if (array == NULL || size < 2)
+		return;
+
 	while (swapped && indexing_length > 0)
 	{
 		size_t index = 0;
