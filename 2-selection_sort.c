@@ -3,7 +3,7 @@
 #include "sort.h"
 
 /**
- * selection sort - Sort an array of integers using selection sort algorithm
+ * selection_sort - Sort an array of integers using selection sort algorithm
  * @array: The array to be sorted
  * @size: The length of the array
 */
