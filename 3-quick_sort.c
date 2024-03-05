@@ -9,6 +9,7 @@
 void quick_sort(int *array, size_t size)
 {
 	int pivot, j, i = 0;
+
 	pivot = size - 1;
 
 	if (size <= 1)
