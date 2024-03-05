@@ -24,6 +24,7 @@ void quick_sort(int *array, size_t size)
 	}
 	i++;
 	swap_int(&array[i], &array[pivot]);
+	print_array(array, size);
 
 	quick_sort(array, i);
 	quick_sort(array + i + 1, size - i - 1);
