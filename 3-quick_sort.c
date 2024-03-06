@@ -10,30 +10,40 @@ void quick_sort(int *array, size_t size)
 {
 	static int *original_array;
 	static size_t original_size;
+	static int count;
 	int pivot, j, i = 0;
-
-	pivot = size - 1;
-	original_array = NULL;
-	original_size = 0;
 
 	if (size <= 1)
 		return;
-	if (original_array == NULL)
+	pivot = size - 1;
+	/* just to make sure original array is not updated on successive calls */
+	if (count == 0)
 	{
 		original_array = array;
 		original_size = size;
 	}
+	count++;
+
 	for (j = 0, i = j - 1; j < pivot; j++)
 	{
 		if (array[j] < array[pivot])
 		{
 			i++;
-			swap_int(&array[i], &array[j]);
+			/* swap only if i != j */
+			if (i != j)
+			{
+				swap_int(&array[i], &array[j]);
+				print_array(original_array, original_size);
+			}
 		}
 	}
 	i++;
-	swap_int(&array[i], &array[pivot]);
-	print_array(original_array, original_size);
+	/* swap only if i != pivot */
+	if (i != pivot)
+	{
+		swap_int(&array[i], &array[pivot]);
+		print_array(original_array, original_size);
+	}
 	quick_sort(array, i);
 	quick_sort(array + i + 1, size - i - 1);
 }
