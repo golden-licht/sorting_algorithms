@@ -38,8 +38,8 @@ void quick_sort(int *array, size_t size)
 		}
 	}
 	i++;
-	/* swap only if i != pivot */
-	if (i != pivot)
+	/* swap only if i != pivot and array[i] != array[pivot] */
+	if (i != pivot && array[i] != array[pivot])
 	{
 		swap_int(&array[i], &array[pivot]);
 		print_array(original_array, original_size);
